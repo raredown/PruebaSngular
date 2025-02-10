@@ -1,4 +1,4 @@
-package com.sngular.test;
+package com.sngular.test.application.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
