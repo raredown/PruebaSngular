@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.sngular.test.infranstructure.adapter.h2.entity.PricesEntity;
-import com.sngular.test.infranstructure.adapter.h2.jpa.PricesRepository;
+import com.sngular.test.domain.Prices;
+import com.sngular.test.domain.repository.PricesRepository;
 
 @SpringBootTest
 class PrinceRequestTests {
@@ -17,29 +17,29 @@ class PrinceRequestTests {
 	private PricesRepository pricesRepository;
 	@Test
 	void testOne() {
-		PricesEntity priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 10:00"), 35455, 1).get(0);
-		assertThat(priceEntity.getId()).isEqualTo(1);
+		Prices priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 10:00"), 35455, 1);
+		assertThat(priceEntity.pricesId()).isEqualTo(1);
 	}
 
 	@Test
 	void testTwo() {
-		PricesEntity priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 16:00"), 35455, 1).get(0);
-		assertThat(priceEntity.getId()).isEqualTo(2);
+		Prices priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 16:00"), 35455, 1);
+		assertThat(priceEntity.pricesId()).isEqualTo(2);
 	}
 	@Test
 	void testTree() {
-		PricesEntity priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 21:00"), 35455, 1).get(0);
-		assertThat(priceEntity.getId()).isEqualTo(3);
+		Prices priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-14 21:00"), 35455, 1);
+		assertThat(priceEntity.pricesId()).isEqualTo(3);
 	}	
 	@Test
 	void testFour() {
-		PricesEntity priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-15 10:00"), 35455, 1).get(0);
-		assertThat(priceEntity.getId()).isEqualTo(4);
+		Prices priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-15 10:00"), 35455, 1);
+		assertThat(priceEntity.pricesId()).isEqualTo(4);
 	}	
 	@Test
 	void testFive() {
-		PricesEntity priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-16 21:00"), 35455, 1).get(0);
-		assertThat(priceEntity.getId()).isEqualTo(5);
+		Prices priceEntity= pricesRepository.findBestProduct(LocalDate.parse("2020-06-16 21:00"), 35455, 1);
+		assertThat(priceEntity.pricesId()).isEqualTo(5);
 	}	
 
 }
